@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%block contents%}
+    <button type="button" class="btn btn-outline-success">
+        <a href="#">Update</a>
+    </button>
+
+    <button type="button" class="btn btn-outline-danger">
+        <a href="#">Delete</a>
+    </button>
+
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            {{ blog.pub_date }}
+            <p class="card-text">{{ blog.body }}</p>
+        </div>
+    </div>
+
+{%endblock%}
