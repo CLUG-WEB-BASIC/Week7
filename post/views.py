@@ -10,7 +10,7 @@ def read_blog_list(request):
 
 def read_blog_detail(request, blog_id):
     blog = get_object_or_404(Blog, pk = blog_id)
-    return render(request, 'post/blog_detail.html', {'blog': blog})
+    return render(request, 'post/blog_detail.html', {'hi': blog})
 
 def blog_new(request):
     return render(request, 'post/blog_new.html')
