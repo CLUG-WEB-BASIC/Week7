@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog
 from django.utils import timezone
-# Create your views here.
 
-# Create your views here.
 def read_blog_list(request):
     blogs = Blog.objects.all()  # 쿼리셋 = 전달받은 모델의 객체 목록 # 쿼리셋을 템플릿으로 보내기
     return render(request, 'post/blog_list.html', {'blogs': blogs})
@@ -22,7 +20,6 @@ def create_blog(request):
     blog.pub_date = timezone.datetime.now()
     blog.save() #쿼리 메소드
     return redirect('read_blog_list')
-
 
 def update_blog(request):
     return render(request, 'post/blog_edit.html')
