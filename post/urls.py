@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from .import views
 
@@ -8,4 +7,5 @@ urlpatterns = [
     path('new/', views.blog_new, name = 'blog_new'),
     path('edit/<int:blog_id>', views.update_blog, name= 'update_blog'),
     path('create/', views.create_blog, name="create_blog"),
+    path('delete/<int:blog_id>', views.delete_blog, name="delete_blog"),
 ]

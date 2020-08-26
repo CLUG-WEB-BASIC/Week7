@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{%block contents%}
+    <form action = "{% url 'update_blog' blog.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="blogTitle">Title</label>
+            <input type="text" class="form-control" id="blogTitle" value="{{ blog.title }}" name ="title">
+        </div>
+        <div class="form-group">
+            <label for="blogText">Text</label>
+            <textarea class="form-control" id="blogText" rows= "10" name ="body">
+                {{blog.body}}
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{%endblock%}

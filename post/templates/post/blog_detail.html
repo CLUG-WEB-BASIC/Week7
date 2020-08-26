@@ -2,11 +2,11 @@
 
 {%block contents%}
     <button type="button" class="btn btn-outline-success">
-        <a href="#">Update</a>
+        <a href="{% url 'update_blog' blog.id %}">Update</a>
     </button>
 
     <button type="button" class="btn btn-outline-danger">
-        <a href="#">Delete</a>
+        <a href="{% url 'delete_blog' blog.id %}">Delete</a>
     </button>
 
     <div class="card" style="width: 100%;">

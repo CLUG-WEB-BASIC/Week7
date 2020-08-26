@@ -9,16 +9,30 @@
     </button>
     <hr>
 
-    {% for blog in blogs %}
+    {% for post in posts %}
         <div class="card" style="width: 100%;">
             <div class="card-body">
-                <h5 class="card-title">{{ blog.title }}</h5>
-                {{ blog.pub_date }}
-                <p class="card-text">{{ blog.summary }}</p>
-                <a href="{% url 'read_blog_detail' blog.id %}" class="btn btn-outline-dark">More</a>
+                <h5 class="card-title">{{ post.title }}</h5>
+                {{ post.pub_date }}
+                <p class="card-text">{{ post.summary }}</p>
+                <a href="{% url 'read_blog_detail' post.id %}" class="btn btn-outline-dark">More</a>
             </div>
         </div>
         <hr>
     {% endfor %}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {% if posts.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page=1">맨앞으로</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">이전으로</a></li>
+      {% endif %}
+       <li class="page-item"><a class="page-link">{{posts.number}}/{{posts.paginator.num_pages}}</a></li>
+      {% if posts.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">다음으로</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ posts.paginator.num_pages }}">맨뒤로</a></li>
+  {% endif %}
+  </ul>
+</nav>
 
 {% endblock %}
