@@ -23,12 +23,17 @@
     <li class="nav-item">
         <a class="nav-link" href="{% url 'read_blog_list'  %}" style="color: black">Post</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" style="color: black">SignIn</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'signup' %}" style="color: black">SignUp</a>
-    </li>
+    {% if user.is_authenticated %}
+    안녕하세요! {{ user }}님!
+         <a class="nav-link" href="{% url 'signout' %}" style="color: black">SignOut</a>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}" style="color: black">SignIn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}" style="color: black">SignUp</a>
+        </li>
+    {% endif %}
 </ul>
 
 {% block contents %}
